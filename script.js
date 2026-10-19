@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const tarjetas = document.querySelectorAll(".card");
     const contadorElemento = document.getElementById("contador");
