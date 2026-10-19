@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #f4f0fa;
+    color: #2b2140;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+header {
+    background: linear-gradient(135deg, #521f82 0%, #3a1360 100%);
+    color: white;
+    padding: 20px 30px;
+    box-shadow: 0 4px 15px rgba(82, 31, 130, 0.25);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+nav p {
+    font-size: 1rem;
+    font-weight: 500;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+#contador {
+    font-weight: 700;
+    color: #f9d342;
+}
+
+/* Contenido principal */
+main {
+    padding: 30px 20px;
+    text-align: center;
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Filtros / Botones */
+.botones-filtros,
+main > button {
+    padding: 10px 20px;
+    margin: 10px 8px 28px;
+    border: none;
+    border-radius: 25px;
+    background: #521f82;
+    color: white;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    text-transform: capitalize;
+    box-shadow: 0 4px 10px rgba(82, 31, 130, 0.2);
+    transition: all 0.25s ease;
+}
+
+main > button:hover {
+    background: #7b42ad;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(123, 66, 173, 0.3);
+}
+
+main > button:active,
+main > button.activo {
+    background: #9d4edd;
+    transform: translateY(0);
+}
+
+/* Galería */
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px;
+    perspective: 1200px;
+}
+
+/* Tarjetas */
+.card {
+    width: 150px;
+    height: 190px;
+    position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+/* Clase para ocultar cartas al filtrar */
+.card.oculta {
+    display: none !important;
+}
+
+/* Cara frontal y trasera */
+.card-frente,
+.card-dorso {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    box-shadow: 0 6px 16px rgba(42, 24, 80, 0.12);
+}
+
+/* Frente por defecto (Consonantes) */
+.card-frente {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #2a1850, #1c0e38);
+    color: white;
+    border: 2px solid #3d2372;
+}
+
+.card-frente h2 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    user-select: none;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo distintivo para vocales */
+.card[data-tipo="vocal"] .card-frente {
+    background: linear-gradient(145deg, #6c2bd9, #4c1d95);
+    border: 2px solid #8b5cf6;
+}
+
+.card[data-tipo="vocal"] .card-frente h2 {
+    color: #ffd166;
+}
+
+/* Reverso */
+.card-dorso {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 2px solid #e2d9f3;
+    transform: rotateY(180deg);
+}
+
+.card-dorso[hidden] {
+    display: flex !important;
+}
+
+.card-dorso img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-dorso p {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #2b2140;
+    margin-top: 4px;
+    user-select: none;
+}
+
+/* Efecto de voltear */
+.card.volteada .card-frente {
+    transform: rotateY(180deg);
+}
+
+.card.volteada .card-dorso {
+    transform: rotateY(0deg);
+}
+
+/* Pie de página */
+footer {
+    margin-top: auto;
+    padding: 22px;
+    text-align: center;
+    background-color: #ece5f6;
+    color: #655280;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Adaptación responsive a pantallas pequeñas */
+@media (max-width: 480px) {
+    header {
+        padding: 16px 20px;
+    }
+
+    nav h1 {
+        font-size: 1.4rem;
+    }
+
+    main {
+        padding: 15px 10px;
+    }
+
+    .galeria {
+        gap: 12px;
+    }
+
+    .card {
+        width: 130px;
+        height: 170px;
+    }
+
+    .card-frente h2 {
+        font-size: 2.6rem;
+    }
+
+    .card-dorso img {
+        height: 105px;
+    }
+
+    .card-dorso p {
+        font-size: 0.85rem;
+    }
+}
