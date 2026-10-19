@@ -13,14 +13,21 @@
 //     }
 //      galeria.appendChild(DIV);
 // }
-const tarjetas = document.querySelectorAll(".card");
 
+// const tarjetas = document.querySelectorAll(".card");
+
+// tarjetas.forEach((tarjeta) => {
+//     tarjeta.addEventListener("click", (e) => {
+//         const frente = tarjeta.querySelector(".card-frente");
+//         const dorso = tarjeta.querySelector(".card-dorso");
+//         frente.style.display = frente.style.display === "none" ? "block" : "none";
+//         dorso.style.display = dorso.style.display === "none" ? "block" : "none";
+//         console.log(e.target)
+//     });
+// });
+const tarjetas = document.querySelectorAll(".card");
 tarjetas.forEach((tarjeta) => {
     tarjeta.addEventListener("click", () => {
-        const frente = tarjeta.querySelector(".card-frente");
-        const dorso = tarjeta.querySelector(".card-dorso");
-
-        frente.hidden = !frente.hidden;
-        dorso.hidden = !dorso.hidden;
+        tarjeta.classList.toggle("volteada");
     });
 });
