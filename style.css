@@ -206,12 +206,64 @@ main > button.activo {
 /* Pie de página */
 footer {
     margin-top: auto;
-    padding: 22px;
+    padding: 30px 20px 25px;
     text-align: center;
-    background-color: #ece5f6;
-    color: #655280;
+    background: linear-gradient(135deg, #2a1850 0%, #1c0e38 100%);
+    color: #e2d9f3;
+    border-top: 3px solid #521f82;
+    box-shadow: 0 -4px 15px rgba(42, 24, 80, 0.15);
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-titulo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f9d342;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.participantes-lista {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.participante-tag {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 25px;
     font-size: 0.9rem;
     font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(4px);
+    transition: all 0.25s ease;
+}
+
+.participante-tag:hover {
+    background-color: #521f82;
+    border-color: #9d4edd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(157, 78, 221, 0.35);
+}
+
+.footer-creditos {
+    font-size: 0.8rem;
+    color: #bfaedc;
+    margin-top: 4px;
 }
 
 /* Adaptación responsive a pantallas pequeñas */
@@ -247,5 +299,10 @@ footer {
 
     .card-dorso p {
         font-size: 0.85rem;
+    }
+
+    .participante-tag {
+        font-size: 0.8rem;
+        padding: 6px 14px;
     }
 }
